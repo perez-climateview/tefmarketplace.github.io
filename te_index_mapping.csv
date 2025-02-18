@@ -1,0 +1,263 @@
+﻿TE_index;TE
+T-1A1a-TE-1;Shift to electric cars
+T-1A1a-TE-2;Shift to hydrogen cars
+T-1A1a-TE-3;Ecodriving of cars
+T-1A1a-TE-4;Improved car engine technology
+T-1A1a-TE-5;Increase journey sharing
+T-1A1a-TE-6;Shift from car to railway
+T-1A1a-TE-7;Shift to online meetings and services
+T-1A1a-TE-8;Shift from car to remote working
+T-1A1a-TE-9;Biofuel for petrol cars
+T-1A1a-TE-10;Shift to walking and cycling
+T-1A1a-TE-11;Shift to electric bikes
+T-1A1a-TE-12;Shift to travel by electric bus
+T-1A1a-TE-13;Shift to travel by hydrogen bus
+T-1A1a-TE-14;Shift to travel by LPG bus
+T-1A1a-TE-15;Shift to travel by gas bus
+T-1A1a-TE-16;Shift to travel by petrol bus
+T-1A1a-TE-17;Shift to travel by diesel bus
+T-1A1a-TE-18;Shift to trams, light rail and subway
+T-1A1a-TE-19;Shift to gas cars
+T-1A1a-TE-20;Biofuel for gas cars
+T-1A1a-TE-21;Biofuel for diesel cars
+T-1A1b-TE-1;Biofuel for petrol motorcycles
+T-1A1b-TE-2;Shift to electric motorcycles
+T-1A1c-TE-1;Biofuel for diesel buses
+T-1A1c-TE-2;Biofuel for gas buses
+T-1A1c-TE-3;Biofuel for petrol buses
+T-1A2-TE-1;Biofuel for rail passenger transport
+T-1A2-TE-2;Shift to travel by electric rail
+T-1A2-TE-3;Shift to travel by hydrogen rail
+T-1A3-TE-1;Biofuel for air passenger transport
+T-1A3-TE-2;More efficient passenger airplanes
+T-1A3-TE-3;Shift to electric air passenger transport
+T-1A3-TE-4;Shift from air travel to railway
+T-1A4-TE-1;Shift to LNG fuel for marine passenger transport
+T-1A4-TE-2;More efficient marine passenger transport
+T-1A4-TE-3;Biofuel for LNG marine passenger transport
+T-1A4-TE-4;Biofuel for marine passenger transport
+T-1A4-TE-5;Shift to electric marine passenger transportion
+T-1B1a-TE-1;Shift to gas light trucks
+T-1B1a-TE-2;Biofuel for diesel light trucks
+T-1B1a-TE-3;Biofuel for petrol light trucks
+T-1B1a-TE-4;Shift to hydrogen for light trucks
+T-1B1a-TE-5;Ecodriving of light trucks
+T-1B1a-TE-6;Shift to electric light trucks
+T-1B1a-TE-7;Route optimisation for light trucks
+T-1B1a-TE-8;Improved light truck engine technology
+T-1B1a-TE-9;Improved load factor for light trucks
+T-1B1a-TE-10;Shift to electric cargo bikes
+T-1B1b-TE-1;Shift to gas heavy trucks
+T-1B1b-TE-2;Biofuel for diesel heavy trucks
+T-1B1b-TE-3;Biofuel for petrol heavy trucks
+T-1B1b-TE-4;Shift to hydrogen for heavy trucks
+T-1B1b-TE-5;Ecodriving of heavy trucks
+T-1B1b-TE-6;Shift to electric heavy trucks
+T-1B1b-TE-7;Improved heavy truck engine technology
+T-1B1b-TE-8;Improved load factor for heavy trucks
+T-1B1b-TE-9;Shift from heavy truck to sea
+T-1B1b-TE-10;Shift from heavy truck to electric railway
+T-1B1c;Other Road Freight
+T-1B2-TE-1;Biofuel for rail freight transport
+T-1B2-TE-2;Shift to electric freight rail transportation
+T-1B2-TE-3;Shift to hydrogen freight rail transportation
+T-1B3-TE-1;Biofuel for kerosene air freight transport
+T-1B3-TE-2;Shift to electric freight air transportation
+T-1B3-TE-3;More efficient air freight transport
+T-1B3-TE-4;Shift from freight air transport to electric rail freight
+T-1B4a;International Shipping
+T-1B4b-TE-1;Shift to LNG fuel for marine freight transport
+T-1B4b-TE-2;More efficient marine freight transport
+T-1B4b-TE-3;Biofuel for LNG marine freight transport
+T-1B4b-TE-4;Biofuel for marine freight transport
+T-1B4b-TE-5;Shift to electric marine freight transportion
+T-1C1;Off-road Vehicles and Other Machinery
+T-1C2;Fishing (Mobile Combustion)
+T-1C3;Pipeline Transport
+T-2A1-TE-1;Shift to use biofuel in cement and mineral industry
+T-2A1-TE-2;Shift to electricity in cement and mineral industry
+T-2A2;Lime Production
+T-2A3-TE-1;Shift to biogas energy in glass industries
+T-2A3-TE-2;Shift to biomass energy in glass industries
+T-2A3-TE-3;Shift to electricity in glass industries
+T-2A3-TE-4;Shift to hydrogen energy in glass industries
+T-2A4;Ceramics
+T-2A5;Soda ash (production and use)
+T-2A6;Non-metallurgical Magnesia Production
+T-2A7;Other Mineral Production
+T-2B1-TE-1;Biogas in methane reforming for ammonia production
+T-2B2;Nitric Acid Production
+T-2B3;Adipic Acid Production
+T-2B4;Caprolactum, Glyoxal and Glyoxylic Acid Production
+T-2B5;Carbide Production
+T-2B6;Titanium Dioxide Production
+T-2B7;Petrochemical and Carbon Black Production
+T-2B8;Flurochemical Production
+T-2B9-TE-1;Shift to biogas energy in chemical industries
+T-2B9-TE-2;Shift to biomass energy in chemical industries
+T-2B9-TE-3;Shift to electricity in chemical industries
+T-2B9-TE-4;Shift to hydrogen energy in chemical industries
+T-2C1-TE-1;Shift to biogas energy in iron and steel industries
+T-2C1-TE-2;Shift to biomass energy in iron and steel industries
+T-2C1-TE-3;Shift to electric arc furnaces in steel industries
+T-2C1-TE-4;Shift to electricity in iron and steel industries
+T-2C1-TE-5;Shift to hydrogen energy in iron and steel industries
+T-2C2;Ferro Alloys Production
+T-2C3-TE-1;Shift to inert anodes in aluminium industries
+T-2C4;Magnesium Production
+T-2C5;Lead Production
+T-2C6;Zinc Production
+T-2C7;Other Metal Production
+T-2C8;Fugitive Emissions from Fuel Transformation
+T-2D1a;Food Systems, Processing, Beverages, Tobacco
+T-2D1b-TE-1;Shift to biogas energy in pulp, paper and print industries
+T-2D1b-TE-2;Shift to biomass energy in pulp, paper and print industries
+T-2D1b-TE-3;Shift to electricity in pulp, paper and print industries
+T-2D1b-TE-4;Shift to hydrogen energy in pulp, paper and print industries
+T-2D1c;Non-metallic Minerals
+T-2D1d;Mining and Quarrying
+T-2D2a;Refrigeration and Air Conditioning (Stationary)
+T-2D2b;Solvents
+T-2D2c;Lubricants
+T-2D2d;Medical Applications
+T-2D2e;Propellant for Pressure Aerosol Products
+T-2D2f;Other Product Use
+T-2D3a;Integrated Circuit or Semiconductor
+T-2D3b;Displays
+T-2D3c;Photovoltaics
+T-2D3d;Microelectromechanical Systems
+T-2D3e;Manufacture of Electrical Equipment
+T-2D3f;Waterproofing of Electronic Circuits
+T-2D3g;Accelerators
+T-2D3h;Military Applications
+T-2D4-TE-1;Shift to biofuel for mobile machinery
+T-2D4-TE-2;Shift to electric mobile machinery
+T-2D4-TE-3;Efficient use of mobile machinery
+T-2D5;Other Industry
+T-3A1-TE-1;Shift to Sustainable Healthy Diets
+T-3A2;Manure Management
+T-3B1;Forest land
+T-3B2;Cropland
+T-3B3 ;Grassland
+T-3B4 ;Wetlands
+T-3B5 ;Settlements
+T-3B6;Other Land
+T-3C1;Biomas Burning
+T-3C2;Managed Soils and Pasture
+T-3C3;Rice Cultivation
+T-3C4;Synthetic Fertiliser Application
+T-3C5;Harvested Wood Products
+T-3C6-TE-1;Energy efficient agriculture, forestry and fishing electrical appliances
+T-3C7;Carbon Sequestration
+T-4A1-TE-1;Energy efficient new Housing
+T-4A1a-TE-1;Shift to heat pumps in multi-family buildings
+T-4A1a-TE-2;Shift to district heating in multi-family buildings
+T-4A1a-TE-3;Shift to district cooling in multi-family buildings
+T-4A1a-TE-4;Shift to solar thermal in multi-family buildings
+T-4A1a-TE-5;Shift to biofuel heating in multi-family buildings
+T-4A1a-TE-6;Retrofitting multi-family buildings for efficient heating
+T-4A1a-TE-7;Energy efficient use of ACs in multi-family buildings
+T-4A1a-TE-8;Energy efficient AC in multi-family buildings
+T-4A1a-TE-9;Retrofitting multi-family buildings for efficient cooling
+T-4A1b-TE-1;Shift to heat pumps in single-family buildings
+T-4A1b-TE-2;Shift to district heating in single-family buildings
+T-4A1b-TE-3;Shift to district cooling in single-family buildings
+T-4A1b-TE-4;Shift to solar thermal in single-family buildings
+T-4A1b-TE-5;Shift to biofuel heating in single-family buildings
+T-4A1b-TE-6;Retrofitting single-family buildings for efficient heating
+T-4A1b-TE-7;Energy efficient use of ACs in single-family buildings
+T-4A1b-TE-8;Energy efficient AC in single-family buildings
+T-4A1b-TE-9;Retrofitting single-family buildings for efficient cooling
+T-4A1b-TE-10;Shift to biogas heating in single-family buildings
+T-4A2a;Lighting
+T-4A2b;Household Appliances
+T-4A2c;Consumer Electronics
+T-4A2d-TE-1;Energy efficient residential electrical appliances
+T-4A2d-TE-2;Shift to residential electric cooking stoves
+T-4A3;Non-CO₂ Emissions
+T-4B1a-TE-1;Shift to district heating in commercial buildings
+T-4B1a-TE-2;Shift to district cooling in commerical buildings
+T-4B1a-TE-3;Shift to heat pumps in commerical buildings
+T-4B1a-TE-4;Shift to biofuel in commercial buildings
+T-4B1a-TE-5;Shift to solar thermal in commercial buildings
+T-4B1a-TE-6;Retrofitting commerical buildings for efficient heating
+T-4B1a-TE-7;Retrofitting commerical buildings for efficient cooling
+T-4B1a-TE-9;Energy efficient new Commercial Buildings
+T-4B1a-TE-10;Shift to biogas in commercial buildings
+T-4B1b-TE-1;Shift to district heating in public buildings
+T-4B1b-TE-2;Shift to district cooling in public buildings
+T-4B1b-TE-3;Shift to heat pumps in public buildings
+T-4B1b-TE-4;Shift to biofuel in public buildings
+T-4B1b-TE-5;Shift to solar thermal in public buildings
+T-4B1b-TE-6;Retrofitting public buildings for efficient heating
+T-4B1b-TE-7;Retrofitting public buildings for efficient cooling
+T-4B1c-TE-1;Shift to district heating in industrial buildings
+T-4B1c-TE-2;Shift to district cooling in industrial buildings
+T-4B1c-TE-3;Shift to heat pumps in industrial buildings
+T-4B1c-TE-4;Shift to biofuel in industrial buildings
+T-4B1c-TE-5;Shift to solar thermal in industrial buildings
+T-4B1c-TE-6;Retrofitting industrial buildings for efficient heating
+T-4B1c-TE-7;Retrofitting industrial buildings for efficient cooling
+T-4B2a-TE-1;Energy efficient street lighting
+T-4B2b-TE-1;Shift to commercial electric cooking stoves
+T-4B2c-TE-1;Energy efficient commercial electrical appliances
+T-4B2c-TE-2;Energy efficient industrial electrical appliances
+T-4B2c-TE-3;Energy efficient public electrical appliances
+T-4B3;Non-CO₂ Emissions
+T-4C1-TE-1;Low carbon construction of buildings
+T-4C1-TE-2;Low carbon construction of multi-family buildings
+T-4C1-TE-3;Low carbon construction of commercial buildings
+T-4C2;Maintenance and Retrofitting
+T-4C3;Disposal
+T-5A1-TE-1;Coal fired power plants
+T-5A1-TE-2;Gas fired power plant
+T-5A1-TE-3;Improved Grid Electricity
+T-5A1-TE-4;Update imported electricity grid emission factor
+T-5A1-TE-5;Oil fired power plant
+T-5A1-TE-6;Electricity from hydro reservoir
+T-5A1-TE-7;Electricity from solar parks
+T-5A1-TE-8;Electricity from solar rooftops
+T-5A1-TE-9;Electricity from wind offshore
+T-5A1-TE-10;Electricity from wind onshore
+T-5A1-TE-11;Alter electricity from biomass power plants
+T-5A2-TE-1;District heat from imported grid
+T-5A2-TE-2;Update imported district heat grid emission factor
+T-5A2-TE-3;District heating by residual heat
+T-5A2-TE-4;District heating by heat pump
+T-5A2-TE-5;Shift to heat pumps in district heating
+T-5A2-TE-6;Shift to Residual Heat in district heating
+T-5A3-TE-1;Alter CHP coal production
+T-5A3-TE-2;Alter CHP oil production
+T-5A3-TE-3;Alter CHP natural gas production
+T-5A3-TE-4;Alter CHP waste incineration
+T-5A3-TE-5;Alter CHP biofuel production
+T-5A3-TE-6;Increased energy recovery from waste
+T-5A3-TE-7;Shift to biofuel in district heating
+T-5A4;Gas Fuels
+T-5A5;Liquid Fuels
+T-5A6;Other Fuels
+T-5A7;Fugitive Emissions
+T-5B1-TE-1;Shift to biomass energy in petroleum refinement
+T-5B2;Biofuel Refinement
+T-5B3;Natural Gas Refinement
+T-5B4-TE-1;Biogas in methane reforming for hydrogen production
+T-5B4-TE-2;Biomass in carbon gasification for hydrogen production
+T-5B4-TE-3;Shift to biogas energy in hydrogen refinement
+T-5B4-TE-4;Shift to biomass energy in hydrogen refinement
+T-5B4-TE-5;Shift to electricity in hydrogen refinement
+T-5B4-TE-6;Shift to electrolysis of water for hydrogen production
+T-5B5;Other
+T-5B6;Fugitive Emissions from Fuel Transformation
+T-5C1;Electricity
+T-5C2;Gas
+T-5C3;Oil
+T-5C4;District Heating & Cooling
+T-5C5;Fugitive Emissions from Fuel Storage
+T-5D1;Non-specified Energy Use
+T-5D2;Carbon Capture and Storage (CCS)
+T-6A1-TE-1;Shift to recycling of solid waste
+T-6A2;Incineration and Open Burning of Waste
+T-6A3;Biological Treatment of Solid Waste
+T-6A4;Composting
+T-6B1;Wastewater Treatment
+T-6B2;Other Waste

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transition Elements City Guide</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <style>
+    /* Basic reset and typography */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #222;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: #333;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2em;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      background: #444;
+      border: 1px solid #555;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    #cityDescription, #teIntro {
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .transition-element {
+      background: #333;
+      border: 1px solid #555;
+      padding: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .transition-element:hover {
+      background: #444;
+    }
+    /* Questions and solution description styling */
+    .questions-container {
+      margin-top: 10px;
+    }
+    .te-message {
+      font-style: italic;
+      margin: 5px 20px;
+    }
+    .question {
+      background: #444;
+      padding: 10px;
+      margin: 5px 20px;
+      cursor: pointer;
+    }
+    .solution-description {
+      background: #555;
+      padding: 10px;
+      margin: 5px 40px;
+      font-size: 0.9em;
+    }
+    .vendor-list {
+      margin: 10px 40px;
+      padding-left: 20px;
+    }
+    .vendor-list li {
+      margin-bottom: 5px;
+    }
+    .vendor-list a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .vendor-list a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Transition Elements City Guide</h1>
+  </header>
+  <div class="container">
+    <!-- City dropdown -->
+    <label for="citySelect">Select City:</label>
+    <select id="citySelect">
+      <option value="">--Choose a city--</option>
+      <!-- Options populated from cities.csv -->
+    </select>
+
+    <!-- City description from cities.csv -->
+    <p id="cityDescription"></p>
+    
+    <!-- Container for transition elements and later questions/solutions -->
+    <div id="elementsContainer"></div>
+  </div>
+
+  <script>
+    // Global objects for CSV data
+    const citiesData = {};              // Keyed by city_name
+    const rankingData = {};             // Keyed by city_type
+    const mappingData = {};             // Keyed by solution_name (from solution_te_mapping.csv)
+    const solutionQuestionMapping = {}; // Keyed by solution_name (each value is an array of questions)
+    const vendorMapping = {};           // Keyed by solution_name (each value is an array of vendor objects)
+
+    /**
+     * Simple CSV parser that returns an array of objects.
+     * Assumes the first line is a header.
+     * Uses the provided delimiter.
+     */
+    function parseCSV(text, delimiter = ';') {
+      const lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
+      const headers = lines[0].split(delimiter).map(h => h.trim());
+      const rows = [];
+      for (let i = 1; i < lines.length; i++) {
+        const columns = lines[i].split(delimiter).map(col => col.trim());
+        const obj = {};
+        headers.forEach((header, index) => {
+          obj[header] = columns[index];
+        });
+        rows.push(obj);
+      }
+      return rows;
+    }
+
+    // Load cities.csv
+    fetch('cities.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = parseCSV(text, ';');
+        const citySelect = document.getElementById('citySelect');
+        rows.forEach(row => {
+          // Save full city row (including city_type and city_description)
+          citiesData[row.city_name] = row;
+          // Create option for the dropdown.
+          const option = document.createElement('option');
+          option.value = row.city_name; 
+          option.innerText = row.city_name;
+          citySelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error('Error loading cities.csv:', error));
+
+    // Load solution_te_mapping.csv
+    fetch('solution_te_mapping.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = parseCSV(text, ';');
+        rows.forEach(row => {
+          mappingData[row.solution_name] = row;
+        });
+      })
+      .catch(error => console.error('Error loading solution_te_mapping.csv:', error));
+
+    // Load city_solution_ranking.csv
+    fetch('city_solution_ranking.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = parseCSV(text, ';');
+        rows.forEach(row => {
+          rankingData[row.city_type] = row;
+        });
+      })
+      .catch(error => console.error('Error loading city_solution_ranking.csv:', error));
+
+    // Load solution_question_mapping.csv
+    fetch('solution_question_mapping.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = parseCSV(text, ';');
+        rows.forEach(row => {
+          const solName = row.solution_name;
+          const question = row.question;
+          if (!solutionQuestionMapping[solName]) {
+            solutionQuestionMapping[solName] = [];
+          }
+          solutionQuestionMapping[solName].push(question);
+        });
+      })
+      .catch(error => console.error('Error loading solution_question_mapping.csv:', error));
+
+    // Load solution_vendor_mapping.csv
+    fetch('solution_vendor_mapping.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = parseCSV(text, ';');
+        rows.forEach(row => {
+          const solName = row.solution_name;
+          if (!vendorMapping[solName]) {
+            vendorMapping[solName] = [];
+          }
+          vendorMapping[solName].push({
+            vendor_name: row.vendor_name,
+            vendor_URL: row.vendor_URL
+          });
+        });
+      })
+      .catch(error => console.error('Error loading solution_vendor_mapping.csv:', error));
+
+    // When a city is selected...
+    document.getElementById('citySelect').addEventListener('change', function() {
+      const selectedCity = this.value;
+      const elementsContainer = document.getElementById('elementsContainer');
+      const cityDescription = document.getElementById('cityDescription');
+      // Clear previous elements and any previous TE introduction.
+      elementsContainer.innerHTML = '';
+
+      if (!selectedCity) {
+        cityDescription.textContent = '';
+        return;
+      }
+
+      // Get the city object from citiesData and display its description.
+      const cityObj = citiesData[selectedCity];
+      if (!cityObj) {
+        console.error("City data not found for: " + selectedCity);
+        return;
+      }
+      // Use the city_description from the CSV (fallback if not provided).
+      cityDescription.textContent = cityObj.city_description || "No description available for this city.";
+
+      const cityType = cityObj.city_type;
+
+      // Insert a short introduction for the transition elements.
+      const teIntro = document.createElement('p');
+      teIntro.id = 'teIntro';
+      teIntro.textContent = "Below are the prioritized transition elements, arranged from highest to lowest priority:";
+      // Insert this intro right after the city description.
+      cityDescription.insertAdjacentElement('afterend', teIntro);
+
+      // Look up ranking data for this city type.
+      const rankingRow = rankingData[cityType];
+      if (!rankingRow) {
+        console.error("Ranking data not found for city type: " + cityType);
+        return;
+      }
+
+      // Build an array of solutions (ignoring the "city_type" column) with their ranking.
+      const solutionsArray = [];
+      Object.keys(rankingRow).forEach(key => {
+        if (key !== 'city_type' && rankingRow[key]) {
+          const rankValue = parseFloat(rankingRow[key]);
+          if (!isNaN(rankValue)) {
+            solutionsArray.push({ solutionName: key, rank: rankValue });
+          }
+        }
+      });
+
+      // Sort the solutions by ascending rank (highest ranked = lowest number).
+      solutionsArray.sort((a, b) => a.rank - b.rank);
+
+      // Build final list of transition elements and create a mapping from TE to solutions.
+      const finalTEs = [];
+      const teToSolutions = {};
+      solutionsArray.forEach(sol => {
+        const mapping = mappingData[sol.solutionName];
+        if (mapping && mapping.te) {
+          // A solution may list more than one TE (separated by commas)
+          const tes = mapping.te.split(',').map(te => te.trim());
+          tes.forEach(te => {
+            if (te) {
+              if (!teToSolutions[te]) {
+                teToSolutions[te] = [];
+                finalTEs.push(te);
+              }
+              if (!teToSolutions[te].includes(sol.solutionName)) {
+                teToSolutions[te].push(sol.solutionName);
+              }
+            }
+          });
+        }
+      });
+
+      // Display each transition element.
+      finalTEs.forEach(te => {
+        const teDiv = document.createElement('div');
+        teDiv.className = 'transition-element';
+        teDiv.innerText = te;
+
+        // Create a container for the questions related to this TE (hidden by default)
+        const questionsContainer = document.createElement('div');
+        questionsContainer.className = 'questions-container';
+        questionsContainer.style.display = 'none';
+
+        // When the TE is clicked, toggle display of its questions.
+        teDiv.addEventListener('click', function(event) {
+          event.stopPropagation();
+          // When opening the container, insert a header message if not already present.
+          if (questionsContainer.style.display === 'none' || questionsContainer.style.display === '') {
+            if (!questionsContainer.querySelector('.te-message')) {
+              const messageDiv = document.createElement('div');
+              messageDiv.className = 'te-message';
+              messageDiv.textContent = "These are some relevant questions to answer for " + selectedCity + ".";
+              questionsContainer.insertBefore(messageDiv, questionsContainer.firstChild);
+            }
+            questionsContainer.style.display = 'block';
+          } else {
+            questionsContainer.style.display = 'none';
+          }
+        });
+
+        // For each solution (in ranking order) associated with this TE...
+        teToSolutions[te].forEach(solutionName => {
+          // Look up questions for this solution.
+          const questions = solutionQuestionMapping[solutionName] || [];
+          questions.forEach(questionText => {
+            // Create a question element.
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerText = questionText;
+
+            // Create a container for the solution details (description + vendors) (hidden by default).
+            const solDescDiv = document.createElement('div');
+            solDescDiv.className = 'solution-description';
+            solDescDiv.style.display = 'none';
+
+            // When the question is clicked, toggle the display of the solution details.
+            questionDiv.addEventListener('click', function(e) {
+              e.stopPropagation();
+              if (solDescDiv.style.display === 'block') {
+                solDescDiv.style.display = 'none';
+              } else {
+                const solMapping = mappingData[solutionName];
+                if (solMapping && solMapping.solution_description) {
+                  solDescDiv.innerHTML = '<strong>' + solutionName + '</strong><br>' + solMapping.solution_description;
+                } else {
+                  solDescDiv.innerHTML = '<strong>' + solutionName + '</strong><br>No description available.';
+                }
+                // Insert a sentence about solution providers.
+                const providerMessage = document.createElement('p');
+                providerMessage.style.marginTop = '10px';
+                providerMessage.style.fontStyle = 'italic';
+                providerMessage.textContent = "Below are some recommended solution providers:";
+                solDescDiv.appendChild(providerMessage);
+                // Append vendor list if available.
+                const vendors = vendorMapping[solutionName] || [];
+                if (vendors.length > 0) {
+                  const vendorList = document.createElement('ul');
+                  vendorList.className = 'vendor-list';
+                  vendors.forEach(vendor => {
+                    const vendorItem = document.createElement('li');
+                    vendorItem.innerHTML = `<a href="${vendor.vendor_URL}" target="_blank">${vendor.vendor_name}</a> - Lorem ipsum dolor sit amet.`;
+                    vendorList.appendChild(vendorItem);
+                  });
+                  solDescDiv.appendChild(vendorList);
+                }
+                solDescDiv.style.display = 'block';
+              }
+            });
+
+            // Append the solution details element to the question element.
+            questionDiv.appendChild(solDescDiv);
+            // Append the question to the questions container.
+            questionsContainer.appendChild(questionDiv);
+          });
+        });
+
+        // Append the questions container to the TE element.
+        teDiv.appendChild(questionsContainer);
+        // Append the TE element to the main container.
+        elementsContainer.appendChild(teDiv);
+      });
+    });
+  </script>
+</body>
+</html>
+
