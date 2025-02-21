@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Transition Elements City Guide</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
   <style>
     /* Basic reset and typography */
     * {
@@ -12,19 +12,26 @@
       padding: 0;
     }
     body {
-      background: #222;
+      background: #181c24; /* Updated background color */
       color: #fff;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Montserrat', sans-serif; /* Updated font */
       line-height: 1.6;
     }
     header {
-      background: #333;
+      background: #181c24;
       padding: 20px;
-      text-align: center;
+      display: flex;           /* Use flex to align logo and title */
+      align-items: center;
+      justify-content: center;
+    }
+    header img {
+      height: 50px;
+      margin-right: 15px;
     }
     header h1 {
       font-size: 2em;
       font-weight: 700;
+      margin: 0;
     }
     .container {
       max-width: 800px;
@@ -50,12 +57,14 @@
       font-style: italic;
     }
     .transition-element {
-      background: #333;
+      background: #333; /* Fallback background */
       border: 1px solid #555;
       padding: 15px;
       margin-bottom: 10px;
       cursor: pointer;
       transition: background 0.3s;
+      display: flex;
+      align-items: center;
     }
     .transition-element:hover {
       background: #444;
@@ -98,7 +107,8 @@
 </head>
 <body>
   <header>
-    <h1>Transition Elements City Guide</h1>
+    <img src="css/logo.png" alt="Logo">
+    <h1>Transition Elements Solution Library</h1>
   </header>
   <div class="container">
     <!-- City dropdown -->
@@ -122,6 +132,7 @@
     const mappingData = {};             // Keyed by solution_name (from solution_te_mapping.csv)
     const solutionQuestionMapping = {}; // Keyed by solution_name (each value is an array of questions)
     const vendorMapping = {};           // Keyed by solution_name (each value is an array of vendor objects)
+    const teVisualMapping = {};         // Keyed by te_name, value: { color, svg }
 
     /**
      * Simple CSV parser that returns an array of objects.
@@ -211,11 +222,26 @@
           }
           vendorMapping[solName].push({
             vendor_name: row.vendor_name,
-            vendor_URL: row.vendor_URL
+            vendor_URL: row.vendor_URL,
+            vendor_description: row.vendor_description  // Include vendor_description from CSV
           });
         });
       })
       .catch(error => console.error('Error loading solution_vendor_mapping.csv:', error));
+
+    // Load te_visual_mapping.csv (updated to store both color and te_svg)
+    fetch('te_visual_mapping.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = parseCSV(text, ';');
+        rows.forEach(row => {
+          teVisualMapping[row.te_name] = {
+            color: row.te_color,
+            svg: row.te_svg  // New column with the logo filename
+          };
+        });
+      })
+      .catch(error => console.error('Error loading te_visual_mapping.csv:', error));
 
     // When a city is selected...
     document.getElementById('citySelect').addEventListener('change', function() {
@@ -242,9 +268,15 @@
       const cityType = cityObj.city_type;
 
       // Insert a short introduction for the transition elements.
+      const existingTeIntro = document.getElementById('teIntro');
+      if (existingTeIntro) {
+        existingTeIntro.remove(); // Remove the existing intro before adding a new one
+      }
+
       const teIntro = document.createElement('p');
       teIntro.id = 'teIntro';
       teIntro.textContent = "Below are the prioritized transition elements, arranged from highest to lowest priority:";
+
       // Insert this intro right after the city description.
       cityDescription.insertAdjacentElement('afterend', teIntro);
 
@@ -295,8 +327,26 @@
       finalTEs.forEach(te => {
         const teDiv = document.createElement('div');
         teDiv.className = 'transition-element';
-        teDiv.innerText = te;
-
+        
+        // If mapping data exists, use the background color and add the logo image.
+        if (teVisualMapping[te]) {
+          teDiv.style.background = teVisualMapping[te].color;
+          
+          const teLogo = document.createElement('img');
+          teLogo.src = 'css/' + teVisualMapping[te].svg;  // Image file from the 'css' subfolder
+          teLogo.alt = te + ' logo';
+          teLogo.style.height = '30px';
+          teLogo.style.marginRight = '10px';
+          teLogo.style.verticalAlign = 'middle';
+          
+          teDiv.appendChild(teLogo);
+        }
+        
+        // Append the TE name as a span element.
+        const teNameSpan = document.createElement('span');
+        teNameSpan.textContent = te;
+        teDiv.appendChild(teNameSpan);
+        
         // Create a container for the questions related to this TE (hidden by default)
         const questionsContainer = document.createElement('div');
         questionsContainer.className = 'questions-container';
@@ -359,7 +409,7 @@
                   vendorList.className = 'vendor-list';
                   vendors.forEach(vendor => {
                     const vendorItem = document.createElement('li');
-                    vendorItem.innerHTML = `<a href="${vendor.vendor_URL}" target="_blank">${vendor.vendor_name}</a> - Lorem ipsum dolor sit amet.`;
+                    vendorItem.innerHTML = `<a href="${vendor.vendor_URL}" target="_blank">${vendor.vendor_name}</a> - ${vendor.vendor_description}`;
                     vendorList.appendChild(vendorItem);
                   });
                   solDescDiv.appendChild(vendorList);
@@ -384,4 +434,3 @@
   </script>
 </body>
 </html>
-

@@ -1,0 +1,25 @@
+﻿te_name;te_color;te_svg
+Shift to electric cars;#78cc6c;shift_to_electric_vehicles.svg
+Increase journey sharing;#78cc6c;more_efficient_commuting_by_car.svg
+Shift to electric bikes;#78cc6c;shift_to_electric_bikes.svg
+Shift to walking and cycling;#78cc6c;increased_proportion_of_walking_and_cycling.svg
+Shift to hydrogen for light trucks;#78cc6c;hydrogen_for_light_trucks.svg
+Improved load factor for light trucks;#78cc6c;improved_load_factor_light_trucks.svg
+Shift to gas light trucks;#78cc6c;gas_light_trucks.svg
+Route optimisation for light trucks;#78cc6c;route_optimisation_light_trucks.svg
+Shift to heat pumps in multi-family buildings;#ff7474;heat_pumps_in_multi_family_residential_buildings.svg
+Retrofitting multi-family buildings for efficient heating;#ff7474;energy_efficient_multi_family_residential_buildings_retrofitting.svg
+Retrofitting multi-family buildings for efficient cooling;#ff7474;energy_efficient_multi_family_residential_buildings_retrofitting_cooling.svg
+Shift to heat pumps in single-family buildings;#ff7474;heat_pumps_in_single_family_residential_buildings.svg
+Retrofitting single-family buildings for efficient heating;#ff7474;energy_efficient_single_family_residential_buildings_retrofitting.svg
+Retrofitting single-family buildings for efficient cooling;#ff7474;energy_efficient_single_family_residential_buildings_retrofitting_cooling.svg
+Shift to travel by electric bus;#78cc6c;increased_proportion_of_commuting_by_electric_bus.svg
+Shift to online meetings and services;#78cc6c;increased_proportion_of_non_travel_meetings_and_services.svg
+Shift to travel by hydrogen bus;#78cc6c;increased_proportion_of_public_transport_by_hydrogen_bus.svg
+Shift from car to remote working;#78cc6c;transfer_from_car_to_remote_working.svg
+Shift to trams;#78cc6c;increased_proportion_of_public_transport_by_trams_and_light_rail.svg
+Shift to travel by LPG bus;#78cc6c;increased_proportion_of_public_transport_by_lpg_bus.svg
+light rail and subway;#78cc6c;shift_to_electric_passenger_rail.svg
+ Shift to travel by gas bus;#78cc6c;increased_proportion_of_public_transport_by_gas_bus.svg
+ Shift to travel by petrol bus;#78cc6c;increased_proportion_of_public_transport_by_petrol_bus.svg
+Shift to travel by diesel bus;#78cc6c;increased_proportion_of_public_transport_by_diesel_bus.svg
